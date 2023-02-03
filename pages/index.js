@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Ornwara</title>
       </Head>
-      <h1>Ornwara's Page</h1>
+      <h1>My Page</h1>
       <p>This is a sample page</p>
       <Link href = "/about">About</Link>
     </>
