@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function About() {
   return (
@@ -8,6 +9,7 @@ export default function About() {
       </Head>
       <h1>About Page</h1>
       <p>About Ornwara</p>
+      <Link href = "/">Home</Link>
     </>
   )
 }
