@@ -1,2 +1,0 @@
-admin:wX8uBZ3tPVLDXSaY
-mongodb+srv://admin:wX8uBZ3tPVLDXSaY@stockappnext.melcos9.mongodb.net/test
