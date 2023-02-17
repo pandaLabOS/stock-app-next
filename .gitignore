@@ -33,3 +33,6 @@ yarn-error.log*
 
 # authentication
 mongoDBConnect.txt
+
+# notes
+stock_products_mongoDB_notes.js

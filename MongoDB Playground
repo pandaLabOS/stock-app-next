@@ -1,0 +1,25 @@
+// MongoDB Playground
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+const database = 'blogs';
+const collection = 'articles';
+
+// Create a new database.
+use(database);
+
+// // Create a new collection.
+// db.createCollection(collection);
+
+let newArticles = [['titleA', 'contentA'], ['titleB', 'contentB'], ['titleC', 'contentC']];
+
+// db.articles.insertOne({
+//   title: 'MongoDB Playground2',
+//   content: 'MongoDB Playground is a web-based MongoDB IDE that allows you to write, run, and share code snippets with your team.'
+// })
+
+for (let a = 0; a < newArticles.length; a++) {
+    db.articles.insertOne({
+        title: newArticles[a][0],
+        content: newArticles[a][1]
+    })
+}
