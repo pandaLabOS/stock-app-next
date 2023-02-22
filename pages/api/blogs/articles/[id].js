@@ -1,5 +1,5 @@
 import {connect, model, models, Schema} from "mongoose"
-const connectionString = "mongodb+srv://user1:VHh5rZeupiNstAJQ@stockappnext.melcos9.mongodb.net/stock"
+const connectionString = process.env.MONGODB_URI
 
 export default async function handler(req, res) {
     await connect(connectionString);
