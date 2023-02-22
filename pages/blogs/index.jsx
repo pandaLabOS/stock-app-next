@@ -21,10 +21,10 @@ export default function Blogs({ blogs }) {
             <table>
                 <tbody>
                     {blogs.map((blog) => ( //add curly braces to write js in html portion of jsx
-                        <tr>
+                        <tr key = {blogs._id}>
                             <td>
                                 <Link href = {`/blogs/${blog._id}`}>
-                                    <li key = {blogs._id}>{blog.title}</li>
+                                    <li>{blog.title}</li>
                                 </Link>
                             </td>
                             <td>

@@ -21,10 +21,10 @@ export default function Products({ products }) {
         <table>
             <tbody>
                 {products.map((product) => ( //add curly braces to write js in html portion of jsx
-                    <tr>
+                    <tr key = {product._id}>
                         <td>
                             <Link href = {`/products/${product._id}`}>
-                                <li key = {product._id}>{product.name}</li>
+                                <li>{product.name}</li>
                             </Link>
                         </td>
                         <td>
