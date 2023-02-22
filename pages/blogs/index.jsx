@@ -42,7 +42,7 @@ export default function Blogs({ blogs }) {
 export async function getServerSideProps() {
     console.log("API_URL: ", process.env.APIURL)
     console.log("API_URL local: ", process.env.APIURL)
-    const res = await fetch(`http://localhost:3000/api/blogs/articles/`)
+    const res = await fetch(`${process.env.APIURL}/blogs/articles/`)
     const blogs = await res.json()
     return { props: { blogs } }
 }
