@@ -18,7 +18,7 @@ export default function Products({ products }) {
             <title>Products</title>
         </Head>
         <h1>Products</h1>
-        <table>
+        {/* <table>
             <tbody>
                 {products.map((product) => ( //add curly braces to write js in html portion of jsx
                     <tr key = {product._id}>
@@ -34,7 +34,8 @@ export default function Products({ products }) {
                     
                 ))}
             </tbody>
-        </table>
+        </table> */}
+        <p>{process.env.APIURL}</p>
       </>
   )
 }
