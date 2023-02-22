@@ -4,19 +4,19 @@ const connectionString = process.env.MONGODB_URI
 export default async function handler(req, res) {
     await connect(connectionString);
     console.log("req.method", req.method)
+    console.log("req.params.id", req.query) //Because this is being run server-side, the console.log results in an output in the terminal (which is on the server) rather than the Dev Console on browsers (because those are client-side)
 
+    const id = req.query.id
+
+    //Get only one document
     if (req.method === 'GET') {
-        const docs = await Article.find()
-        res.status(200).json(docs)
-    } 
-    
-    else if (req.method === 'POST') {
-        const doc = await Article.create(req.body)
-        res.status(201).json(doc)
-    } 
-    
-    else {
-        res.setHeader('Allow', ['GET', 'POST'])
+        const doc = await Article.findOne({ _id : id})
+        res.status(200).json(doc)
+    } else if (req.method === 'DELETE') {
+        const deletedDoc = await Article.deleteOne({ _id: id })
+        res.status(200).json(deletedDoc)
+    } else {
+        res.setHeader('Allow', ['GET', 'DELETE'])
         res.status(405).end(`Method ${req.method} Not Allowed`)
     }
 }
