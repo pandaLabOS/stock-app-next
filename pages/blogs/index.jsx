@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Blogs({ blogs }) {
 
     function deleteBlog(id) {
-        fetch(`${process.env.API_URL}/api/blogs/articles/${id}`, {
+        fetch(`${process.env.APIURL}/blogs/articles/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
