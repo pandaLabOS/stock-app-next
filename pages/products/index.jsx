@@ -40,7 +40,8 @@ export default function Products({ products }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/stock/products/`)
-  const products = await res.json()
-  return { props: { products } }
+    console.log("API_URL: ", process.env.APIURL)
+    const res = await fetch(`http://localhost:3000/api/stock/products/`)
+    const products = await res.json()
+    return { props: { products } }
 }
