@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Button from 'react-bootstrap/Button';
 
 //export: you can export multiple functions from a single file but only have one default export
 
