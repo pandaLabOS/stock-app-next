@@ -29,7 +29,7 @@ export default function Product({ product }) {
 //STEP 1: Function executed server-side before rendering page ---- Whether you write the function above or below the html section makes no difference
 //params.id == params comes from the file name. If the file name blog_id, then it will be param.blog_id. Basically, param.<fileName>
 export async function getServerSideProps({ params }) {
-    const res = await fetch(`http://localhost:3000/api/stock/products/${params.id}`)
+    const res = await fetch(`${process.env.API_URL}/api/stock/products/${params.id}`)
     const product = await res.json()
     return { props: { product } }
 }

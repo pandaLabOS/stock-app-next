@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Products({ products }) {
 
   function deleteProduct(id) {
-      fetch(`http://localhost:3000/api/stock/products/${id}`, {
+      fetch(`${process.env.API_URL}api/stock/products/${id}`, {
           method: 'DELETE'
       })
       .then(res => res.json())
