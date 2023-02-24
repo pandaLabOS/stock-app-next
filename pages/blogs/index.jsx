@@ -7,13 +7,12 @@ export default function Blogs({ returnProps }) {
     const API_URL = returnProps[1]
 
     function deleteBlog(id, API_URL) {
-        console.log(`ID: ${id}`)
-        fetch(`${API_URL}/blogs/articles/${id}`, { method: 'DELETE' })
+        fetch(`${API_URL}/blogs/articles/${id}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json; charset=UTF-8' } })
         .then(res => res.json())
         .then(data => {
             window.location.reload(false);
         })
-        console.log(`${API_URL}/blogs/articles/${id}`)
+        
     }
 
     return (
@@ -44,10 +43,8 @@ export default function Blogs({ returnProps }) {
 }
 
 export async function getServerSideProps() {
-    console.log(`process.env.API_URL: ${process.env.API_URL}`)
     const res = await fetch(`${process.env.API_URL}/blogs/articles/`)
     const blogs = await res.json()
-    console.log(`blogs: ${blogs}`)
     const returnProps = [ blogs, process.env.API_URL ]
     return { props: { returnProps } }
 }

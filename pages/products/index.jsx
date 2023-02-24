@@ -6,13 +6,16 @@ export default function Products({ returnProps }) {
     const API_URL = returnProps[1]
 
     function deleteProduct(id, API_URL) {
-        console.log(`ID: ${id}`)
-        fetch(`${API_URL}/stock/products/${id}`, { method: 'DELETE' })
+        fetch(`${API_URL}/stock/products/${id}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json; charset=UTF-8'  })
         .then(res => res.json())
-        .then(data => {
-            window.location.reload(false);
-        })
-        console.log(`${API_URL}/stock/products/${id}`)
+        if (!res.ok) {
+            throw new Error(`Error: ${res.status} ${res.statusText}`)
+        } else {
+            .then(data => {
+                window.location.reload(false);
+            })
+        }
+        
     }
     return (
         <>
@@ -42,7 +45,6 @@ export default function Products({ returnProps }) {
 }
 
 export async function getServerSideProps() {
-    console.log("API_URL: ", process.env.API_URL)
     const res = await fetch(`${process.env.API_URL}/stock/products/`)
     const products = await res.json()
     const returnProps = [ products, process.env.API_URL ]
