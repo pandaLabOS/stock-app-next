@@ -9,7 +9,12 @@ export default function Home() {
       </Head>
       <h1>My Page</h1>
       <p>This is a sample page</p>
+      <br/>
       <Link href = "/about">About</Link>
+      <br/>
+      <Link href = "/products">Products</Link>
+      <br/>
+      <Link href = "/blogs">Blogs/Articles</Link>
     </>
   )
 }

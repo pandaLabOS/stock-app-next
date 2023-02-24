@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 //Step 2: Component rendered on server (SSR: Server-side rendering)
 export default function Product({ product }) {
+    console.log(`Product.name: ${JSON.stringify(product)}`)
 
     if (!product) return (
         <div>
@@ -30,7 +31,7 @@ export default function Product({ product }) {
 //params.id == params comes from the file name. If the file name blog_id, then it will be param.blog_id. Basically, param.<fileName>
 export async function getServerSideProps({ params }) {
     console.log("API_URL: ", process.env.APIURL)
-    const res = await fetch(`${process.env.API_URL}/api/stock/products/${params.id}`)
+    const res = await fetch(`${process.env.API_URL}/stock/products/${params.id}`)
     const product = await res.json()
     return { props: { product } }
 }

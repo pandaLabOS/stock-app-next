@@ -4,6 +4,7 @@ const connectionString = "mongodb+srv://user1:VHh5rZeupiNstAJQ@stockappnext.melc
 export default async function handler(req, res) {
     await connect(connectionString);
     console.log("req.method", req.method)
+    console.log(`${process.env.API_URL}`)
 
     if (req.method === 'GET') {
         const docs = await Product.find()
