@@ -10,13 +10,9 @@ export default function Products({ returnProps }) {
     function deleteProduct(id, API_URL) {
         fetch(`${API_URL}/stock/products/${id}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json; charset=UTF-8'  }})
         .then(res => res.json())
-        if (!res.ok) {
-            throw new Error(`Error: ${res.status} ${res.statusText}`)
-        } else {
-            .then(data => {
-                window.location.reload(false);
-            })
-        }
+        .then(data => {
+            window.location.reload(false);
+        })
         
     }
     return (
