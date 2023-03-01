@@ -8,7 +8,8 @@ export default function Products({ returnProps }) {
     console.log(`API_URL: ${API_URL}`)
 
     function deleteProduct(id, API_URL) {
-        fetch(`${API_URL}/stock/products/${id}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json; charset=UTF-8'  }})
+        console.log(`API_URL: ${API_URL}`)
+        fetch(`/api/stock/products/${id}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json; charset=UTF-8'  }})
         .then(res => res.json())
         .then(data => {
             window.location.reload(false);
@@ -43,9 +44,10 @@ export default function Products({ returnProps }) {
 }
 
 export async function getServerSideProps() {
+    console.log(`process.env.API_URL: ${process.env.API_URL}`)
     const res = await fetch(`${process.env.API_URL}/stock/products/`)
     const products = await res.json()
     const returnProps = [ products, process.env.API_URL ]
-    console.log(returnProps)
+    // console.log(returnProps)
     return { props: { returnProps } }
 }

@@ -12,10 +12,14 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
         const doc = await Product.findOne({ _id : id})
         res.status(200).json(doc)
-    } else if (req.method === 'DELETE') {
+    } 
+    
+    else if (req.method === 'DELETE') {
         const deletedDoc = await Product.deleteOne({ _id: id })
         res.status(200).json(deletedDoc)
-    } else {
+    } 
+    
+    else {
         res.setHeader('Allow', ['GET', 'DELETE'])
         res.status(405).end(`Method ${req.method} Not Allowed`)
     }
