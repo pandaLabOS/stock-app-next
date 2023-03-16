@@ -1,8 +1,9 @@
 import {connect, model, models, Schema} from "mongoose"
-const connectionString = "mongodb+srv://user1:VHh5rZeupiNstAJQ@stockappnext.melcos9.mongodb.net/stock"
+const connectionString = "mongodb+srv://user1:VHh5rZeupiNstAJQ@stockappnext.melcos9.mongodb.net"
+const database = "/stock"
 
 export default async function handler(req, res) {
-    await connect(connectionString);
+    await connect(`${connectionString}${database}`);
     console.log("req.method", req.method)
     console.log(`${process.env.API_URL}`)
 

@@ -18,6 +18,16 @@ export default async function handler(req, res) {
         const deletedDoc = await Product.deleteOne({ _id: id })
         res.status(200).json(deletedDoc)
     } 
+
+    else if (req.method === 'POST') {
+        const newDoc = await Product.create(req.body)
+        res.status(200).json(newDoc)
+    }
+
+    else if (req.method === 'PUT') {
+        const updatedDoc = await Product.updateOne({_id: id}, req.body)
+        res.status(200).json(updatedDoc)
+    }
     
     else {
         res.setHeader('Allow', ['GET', 'DELETE'])
